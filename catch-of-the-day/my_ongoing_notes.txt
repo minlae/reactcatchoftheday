@@ -1,0 +1,22 @@
+When Deploying:
+NETLIFY - if install issues include --unsafe-perm=true to the npm i command.
+
+State is an object that lives inside of a component
+hat stores all the data for the component and its children
+State is a "single source of truth" All data lives in one place.
+In order to pass data, it must live at a higher level, and can then be passed on to its children. Can't pass data up, can pass it down though.
+
+State can be created in component either with a constructor or as a "property" (the latest way)*
+  *As a property--need to look this up in more detail (or perhaps he'll cover it). Cause in StorePicker, it's an arrow function, but as state in App, it's just an object.
+Methods that update state, need to live in the same component as state!
+So how do you get a function that lives in a higher level, down to grab data from a lower level (i.e. the form which has the data)
+How does anything get into a component? PROPS!
+
+Remember: Props is passed down into component via its attribute:
+<Header tagline="Always Fresh!" />
+Then within the Header component you have tagline as a parameter--and it takes whatever you set as tagline at the attribute level.
+*Remember! When passing down multiple components, if container component doesn't have the info within itself (i.e. it's coming from its props) then you reference it as this.props.xxxx rather than this.xxxx.
+
+Updating State:
+Have to use React's API
+Must take a copy of the existing state. Can never mutate current state. (Wes's strategy: Use the object spread to create a copy)
